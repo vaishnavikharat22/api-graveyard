@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import DashboardPage from './pages/DashboardPage'
 import ApiListPage from './pages/ApiListPage'
+import AlertsPage from './pages/AlertsPage'
 import MainLayout from './components/MainLayout'
 
 const PrivateRoute = ({ children }) => {
@@ -40,6 +41,7 @@ function App() {
       }>
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="apis" element={<ApiListPage />} />
+        <Route path="alerts" element={<AlertsPage />} />
       </Route>
     </Routes>
   )
