@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.client.RestTemplate;
 
 import com.apigraveyard.backend.security.JwtAuthFilter;
 import com.apigraveyard.backend.security.UserDetailsServiceImpl;
@@ -60,5 +61,15 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
             throws Exception {
         return config.getAuthenticationManager();
+    } 
+
+    @Bean
+    public RestTemplate restTemplate() {
+    // Set timeouts - don't wait forever for slow APIs
+    org.springframework.http.client.SimpleClientHttpRequestFactory factory =
+        new org.springframework.http.client.SimpleClientHttpRequestFactory();
+    factory.setConnectTimeout(10000);  // 10 seconds
+    factory.setReadTimeout(15000);     // 15 seconds
+    return new RestTemplate(factory);
     }
 }
