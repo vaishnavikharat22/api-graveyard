@@ -37,6 +37,7 @@ public class Notification {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
+    @Builder.Default
     private NotificationStatus status = NotificationStatus.PENDING;
 
     private LocalDateTime sentAt;

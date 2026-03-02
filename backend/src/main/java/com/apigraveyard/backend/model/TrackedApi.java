@@ -40,23 +40,29 @@ public class TrackedApi {
     private String healthCheckUrl;
 
     @Column(length = 10)
+    @Builder.Default
     private String httpMethod = "GET";
 
+    @Builder.Default
     private Integer expectedStatus = 200;
 
+    @Builder.Default
     private Integer checkInterval = 3600;
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private ApiStatus currentStatus = ApiStatus.UNKNOWN;
 
     private LocalDateTime lastChecked;
-
+    
     private LocalDateTime nextCheckAt;
 
     @Column(nullable = false)
+    @Builder.Default
     private Boolean isActive = true;
 
+    @Builder.Default
     private Integer consecutiveFailures = 0;
 
     @CreationTimestamp

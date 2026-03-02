@@ -22,10 +22,16 @@ public class NotificationPreference {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 
+    @Builder.Default
     private Boolean emailEnabled = true;
-    private Boolean inAppEnabled = true;
-    private Boolean alertOnDown = true;
-    private Boolean alertOnDegraded = true;
-    private Boolean alertOnDeprecation = true;
-    private Boolean alertOnResponseChange = false;
+    @Builder.Default
+private Boolean inAppEnabled = true;
+@Builder.Default
+private Boolean alertOnDown = true;
+@Builder.Default
+private Boolean alertOnDegraded = true;
+@Builder.Default
+private Boolean alertOnDeprecation = true;
+@Builder.Default
+private Boolean alertOnResponseChange = false;
 }

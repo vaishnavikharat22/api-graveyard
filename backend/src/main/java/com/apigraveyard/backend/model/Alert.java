@@ -47,7 +47,8 @@ public class Alert {
     private String description;
 
     @Column(nullable = false)
-    private Boolean isResolved = false;
+    @Builder.Default
+    private Boolean isResolved = false; 
 
     private LocalDateTime resolvedAt;
 
